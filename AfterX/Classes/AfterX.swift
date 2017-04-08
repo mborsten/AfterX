@@ -20,8 +20,9 @@ public struct AfterX {
     /// - Parameters:
     ///   - task: The task identifier
     ///   - block: The block to be executed once
-    public static func doOnce(task: String, block: ()->()) {
-        `do`(task: task, after: 1, block: block)
+    /// - Returns: `true` if the task was executed, else `false`
+    @discardableResult public static func doOnce(task: String, block: ()->()) -> Bool {
+        return `do`(task: task, after: 1, block: block)
     }
 
     /// Executes the given block, but only after this function
@@ -35,12 +36,15 @@ public struct AfterX {
     /// this function is called and the conditions are met, if `false`, the
     /// block gets executed every time.
     ///   - block: The block to be executed
-    public static func `do`(task: String, after: Int, once: Bool, block: () -> ()) {
+    /// - Returns: `true` if the task was executed, else `false`
+    @discardableResult public static func `do`(task: String, after: Int, once: Bool, block: () -> ()) -> Bool {
         let executeCount = incrementCount(task)
         if (once && executeCount == after) ||
             !once && executeCount >= after {
             block()
+            return true
         }
+        return false
     }
 
     /// Executes the given block once after it has been called
@@ -51,11 +55,14 @@ public struct AfterX {
     ///   - after: Amount of times the function has to have been called
     /// with the same identifier before the block gets executed
     ///   - block: The block to be executed
-    public static func `do`(task: String, after: Int, block: () -> ()) {
+    /// - Returns: `true` if the task was executed, else `false`
+    @discardableResult public static func `do`(task: String, after: Int, block: () -> ()) -> Bool {
         let executeCount = incrementCount(task)
         if executeCount == after {
             block()
+            return true
         }
+        return false
     }
 
 

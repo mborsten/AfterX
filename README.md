@@ -1,6 +1,5 @@
 # AfterX
 
-[![CI Status](http://img.shields.io/travis/Marcel Borsten/AfterX.svg?style=flat)](https://travis-ci.org/Marcel Borsten/AfterX)
 [![Version](https://img.shields.io/cocoapods/v/AfterX.svg?style=flat)](http://cocoapods.org/pods/AfterX)
 [![License](https://img.shields.io/cocoapods/l/AfterX.svg?style=flat)](http://cocoapods.org/pods/AfterX)
 [![Platform](https://img.shields.io/cocoapods/p/AfterX.svg?style=flat)](http://cocoapods.org/pods/AfterX)

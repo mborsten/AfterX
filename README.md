@@ -8,6 +8,24 @@
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
+
+```swift
+  AfterX.doOnce(task: "button_hint") {
+    self.showHint()
+  }
+```
+
+```swift
+  func calledWhenSucceedingTask() {
+
+    ...
+    
+    AfterX.do(task: "ask_for_review", after: 5) {
+      self.askForReview()
+    }
+  }
+```
+
 ## Requirements
 
 ## Installation

@@ -1,0 +1,16 @@
+PODS:
+  - AfterX (0.1.0)
+
+DEPENDENCIES:
+  - AfterX (from `../`)
+
+EXTERNAL SOURCES:
+  AfterX:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  AfterX: 629ee007dd383efa55e871f788e8e2bde86e3f1c
+
+PODFILE CHECKSUM: 453c2f2f32d821c2eca0d9c32a7dfaf17df5c522
+
+COCOAPODS: 1.2.1.beta.1

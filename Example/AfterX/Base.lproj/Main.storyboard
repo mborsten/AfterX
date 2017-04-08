@@ -1,21 +1,66 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="AfterX_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LqA-5u-OGM">
+                                <rect key="frame" x="153" y="52" width="69" height="30"/>
+                                <state key="normal" title="Only once"/>
+                                <connections>
+                                    <action selector="onceButtonAction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="a3e-9y-2P4"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nDM-G3-0cy">
+                                <rect key="frame" x="124" y="102" width="127" height="30"/>
+                                <state key="normal" title="Once after 5 times"/>
+                                <connections>
+                                    <action selector="onceAfterFiveAction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="KMV-MX-Pa7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="42a-4A-AfF">
+                                <rect key="frame" x="118" y="152" width="139" height="30"/>
+                                <state key="normal" title="Always after 5 times"/>
+                                <connections>
+                                    <action selector="alwaysAfterFiveAction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="DfV-1m-U1u"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eFi-Xd-Vbe">
+                                <rect key="frame" x="168" y="202" width="39" height="30"/>
+                                <state key="normal" title="Reset"/>
+                                <connections>
+                                    <action selector="resetAction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="dWu-Ce-Ujo"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="nDM-G3-0cy" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="A8S-uM-JNU"/>
+                            <constraint firstItem="42a-4A-AfF" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="BO7-dk-Lpy"/>
+                            <constraint firstItem="eFi-Xd-Vbe" firstAttribute="top" secondItem="42a-4A-AfF" secondAttribute="bottom" constant="20" id="K8u-6T-xfE"/>
+                            <constraint firstItem="nDM-G3-0cy" firstAttribute="top" secondItem="LqA-5u-OGM" secondAttribute="bottom" constant="20" id="STK-XR-gSf"/>
+                            <constraint firstItem="LqA-5u-OGM" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="32" id="ZAZ-Fg-Uco"/>
+                            <constraint firstItem="42a-4A-AfF" firstAttribute="top" secondItem="nDM-G3-0cy" secondAttribute="bottom" constant="20" id="bII-F5-YFT"/>
+                            <constraint firstItem="LqA-5u-OGM" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="fCM-Qz-JM8"/>
+                            <constraint firstItem="eFi-Xd-Vbe" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="gzw-lS-CDl"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

@@ -1,0 +1,6 @@
+framework module AfterX {
+  umbrella header "AfterX-umbrella.h"
+
+  export *
+  module * { export * }
+}

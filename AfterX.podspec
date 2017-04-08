@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'AfterX'
-  s.version          = '0.1.0'
+  s.version          = '0.2.0'
   s.summary          = 'AfterX helps you keep track of things you only want to do once, or after x amount of times, during the application lifetime'
 
 # This description is used to generate tags and improve search results.

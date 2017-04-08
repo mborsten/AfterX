@@ -76,6 +76,9 @@ public struct AfterX {
         return defaults.integer(forKey: key)
     }
 
+    /// Resets the count for a given task
+    ///
+    /// - Parameter task: The task identifier
     public static func resetCount(forTask task: String) {
         var tasks = trackedTasks()
         if let index = tasks.index(of: task) {
@@ -84,6 +87,7 @@ public struct AfterX {
         }
     }
 
+    /// Resets the count for all tasks
     public static func resetAll() {
 
         for thisTask in trackedTasks() {

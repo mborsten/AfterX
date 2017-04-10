@@ -12,6 +12,7 @@ public struct AfterX {
 
     private static let defaultsPrefix = "after_x_"
     private static let trackedTasksKey = "__after_x_tracked_tasks"
+    private static let disabledTasksKey = "__after_x_disabled_tasks"
     private static let defaults = UserDefaults.standard
 
     /// Executes the given block only the first time, after that
@@ -22,6 +23,11 @@ public struct AfterX {
     ///   - block: The block to be executed once
     /// - Returns: `true` if the task was executed, else `false`
     @discardableResult public static func doOnce(task: String, block: ()->()) -> Bool {
+
+        if isDisabled(task: task) {
+            return false
+        }
+
         return `do`(task: task, after: 1, block: block)
     }
 
@@ -38,6 +44,11 @@ public struct AfterX {
     ///   - block: The block to be executed
     /// - Returns: `true` if the task was executed, else `false`
     @discardableResult public static func `do`(task: String, after: Int, once: Bool, block: () -> ()) -> Bool {
+
+        if isDisabled(task: task) {
+            return false
+        }
+
         let executeCount = incrementCount(task)
         if (once && executeCount == after) ||
             !once && executeCount >= after {
@@ -57,6 +68,11 @@ public struct AfterX {
     ///   - block: The block to be executed
     /// - Returns: `true` if the task was executed, else `false`
     @discardableResult public static func `do`(task: String, after: Int, block: () -> ()) -> Bool {
+
+        if isDisabled(task: task) {
+            return false
+        }
+
         let executeCount = incrementCount(task)
         if executeCount == after {
             block()
@@ -87,14 +103,46 @@ public struct AfterX {
         }
     }
 
-    /// Resets the count for all tasks
+    /// Disables a task. After disableling as task, any request
+    /// with this task identifier will never perform, or increment
+    /// it's call-count
+    ///
+    /// - Parameter task: The task identifier
+    public static func disable(task: String) {
+        var tasks = disabledTasks()
+        let taskKey = defaultsKey(task)
+        if !tasks.contains(taskKey) {
+            tasks.append(taskKey)
+            defaults.set(tasks, forKey: disabledTasksKey)
+        }
+    }
+
+    /// Enables a previously disbaled task
+    ///
+    /// - Parameter task: The task identifier
+    public static func enable(task: String) {
+        var tasks = disabledTasks()
+        if let index = tasks.index(of: task) {
+            tasks.remove(at: index)
+            defaults.set(tasks, forKey: disabledTasksKey)
+        }
+    }
+
+    /// Resets the count for all tasks, re-enables all disabled
+    /// tasks
     public static func resetAll() {
 
         for thisTask in trackedTasks() {
             defaults.removeObject(forKey: thisTask)
         }
 
+        defaults.set([String](), forKey: disabledTasksKey)
+
         defaults.set([String](), forKey: trackedTasksKey)
+    }
+
+    private static func isDisabled(task: String) -> Bool {
+        return disabledTasks().contains(defaultsKey(task))
     }
 
     private static func incrementCount(_ task: String) -> Int {
@@ -118,6 +166,10 @@ public struct AfterX {
             tasks.append(taskKey)
             defaults.set(tasks, forKey: trackedTasksKey)
         }
+    }
+
+    private static func disabledTasks() -> [String] {
+        return defaults.stringArray(forKey: disabledTasksKey) ?? [String]()
     }
 
     private static func trackedTasks() -> [String] {

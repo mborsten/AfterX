@@ -29,7 +29,7 @@
 
 /* Begin PBXFileReference section */
 		10C0EC7199C661E1AC2BBC70 /* Pods-AfterX_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AfterX_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AfterX_Example/Pods-AfterX_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		1447C20CBAE538E4AF61D82D /* AfterX.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = AfterX.podspec; path = ../AfterX.podspec; sourceTree = "<group>"; };
+		1447C20CBAE538E4AF61D82D /* AfterX.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = AfterX.podspec; path = ../AfterX.podspec; sourceTree = "<group>"; };
 		19C916346B2D36A77AE07766 /* Pods_AfterX_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AfterX_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FEEBFCF574D3B47DA72B835 /* Pods-AfterX_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AfterX_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AfterX_Tests/Pods-AfterX_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* AfterX_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AfterX_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -42,10 +42,10 @@
 		607FACE51AFB9204008FA782 /* AfterX_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AfterX_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
-		7E011472954987ECADEDE833 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		7E011472954987ECADEDE833 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		854388C7EFB02AAAC0F5E9A1 /* Pods-AfterX_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AfterX_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AfterX_Tests/Pods-AfterX_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		995C6D45F7BD0DCA594ED99F /* Pods-AfterX_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AfterX_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-AfterX_Example/Pods-AfterX_Example.release.xcconfig"; sourceTree = "<group>"; };
-		AE20748B253D398F150E4B6C /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		AE20748B253D398F150E4B6C /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		BAF339F93CFCEE94750D03C9 /* Pods_AfterX_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AfterX_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -219,6 +219,7 @@
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = L4375458BR;
 						LastSwiftMigration = 0820;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
@@ -523,6 +524,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2FEEBFCF574D3B47DA72B835 /* Pods-AfterX_Tests.debug.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = L4375458BR;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -536,6 +538,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AfterX_Example.app/AfterX_Example";
 			};
 			name = Debug;
 		};
@@ -543,6 +546,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 854388C7EFB02AAAC0F5E9A1 /* Pods-AfterX_Tests.release.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = L4375458BR;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -552,6 +556,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AfterX_Example.app/AfterX_Example";
 			};
 			name = Release;
 		};

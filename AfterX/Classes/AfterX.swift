@@ -103,7 +103,7 @@ public struct AfterX {
         }
     }
 
-    /// Disables a task. After disableling as task, any request
+    /// Disables a task. After disabling a task, any request
     /// with this task identifier will never perform, or increment
     /// it's call-count
     ///

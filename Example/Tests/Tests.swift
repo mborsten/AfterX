@@ -44,8 +44,34 @@ class Tests: XCTestCase {
         XCTAssertFalse(didOnce)
     }
 
-    func testDoOnceAfter() {
+    func testResetAll() {
 
+        XCTAssertTrue( AfterX.doOnce(task: "reset_all_1", block: {}) )
+        XCTAssertFalse( AfterX.doOnce(task: "reset_all_1", block: {}) )
+
+        XCTAssertTrue( AfterX.doOnce(task: "reset_all_2", block: {}) )
+        XCTAssertFalse( AfterX.doOnce(task: "reset_all_2", block: {}) )
+
+        AfterX.resetAll()
+
+        XCTAssertTrue( AfterX.doOnce(task: "reset_all_1", block: {}) )
+        XCTAssertTrue( AfterX.doOnce(task: "reset_all_2" , block: {}) )
 
     }
+
+    func testResetOne() {
+
+        XCTAssertTrue( AfterX.doOnce(task: "reset_one_1", block: {}) )
+        XCTAssertFalse( AfterX.doOnce(task: "reset_one_1", block: {}) )
+
+        XCTAssertTrue( AfterX.doOnce(task: "reset_one_2", block: {}) )
+        XCTAssertFalse( AfterX.doOnce(task: "reset_one_2", block: {}) )
+
+        AfterX.resetCount(forTask: "reset_one_1")
+
+        XCTAssertTrue( AfterX.doOnce(task: "reset_one_1", block: {}) )
+        XCTAssertFalse( AfterX.doOnce(task: "reset_one_2" , block: {}) )
+
+    }
+
 }

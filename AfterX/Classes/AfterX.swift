@@ -97,10 +97,12 @@ public struct AfterX {
     /// - Parameter task: The task identifier
     public static func resetCount(forTask task: String) {
         var tasks = trackedTasks()
-        if let index = tasks.index(of: task) {
+        let key = defaultsKey(task)
+        if let index = tasks.index(of: key) {
             tasks.remove(at: index)
             defaults.set(tasks, forKey: trackedTasksKey)
         }
+        defaults.removeObject(forKey: key)
     }
 
     /// Disables a task. After disableling as task, any request

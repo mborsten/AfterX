@@ -143,6 +143,29 @@ public struct AfterX {
         defaults.set([String](), forKey: trackedTasksKey)
     }
 
+    /// Setup a task that should only be triggered once
+    /// after reading.
+    ///
+    /// - Parameter task: The task identifier
+    public static func setupEphemeral(task: String) {
+        let key = defaultsKey(task)
+        defaults.set(true, forKey: key)
+    }
+
+    /// Check is a ephemeral task has been set. After this
+    /// is check, the task is removed, so subsequent requests
+    /// with the same task identifier will always return false
+    /// until `setupEphemeral(task:)` has been called again
+    ///
+    /// - Parameter task: The task identifier
+    /// - Returns: `true` is the task was set, else `false`
+    public static func checkEphemeral(task: String) -> Bool {
+        let key = defaultsKey(task)
+        let status = defaults.bool(forKey: key)
+        defaults.removeObject(forKey: key)
+        return status
+    }
+
     private static func isDisabled(task: String) -> Bool {
         return disabledTasks().contains(defaultsKey(task))
     }

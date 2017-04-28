@@ -74,4 +74,15 @@ class Tests: XCTestCase {
 
     }
 
+    func testEphemeral() {
+
+        XCTAssertFalse(AfterX.checkEphemeral(task: "task_1"))
+
+        AfterX.setupEphemeral(task: "task_1")
+
+        XCTAssertTrue(AfterX.checkEphemeral(task: "task_1"))
+        XCTAssertFalse(AfterX.checkEphemeral(task: "task_1"))
+
+    }
+
 }

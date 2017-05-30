@@ -166,6 +166,27 @@ public struct AfterX {
         return status
     }
 
+    /// Only do task first x amount of times
+    ///
+    /// - Parameters:
+    ///   - times: The amount of times the task should be perform before
+    /// this method stops executing the block
+    ///   - task: The task identifier
+    ///   - block: The block to be executed
+    /// - Returns: `true` if the task was executed, else `false`
+    public static func doFirst(times: Int, task: String, block: () -> ()) -> Bool {
+
+        if isDisabled(task: task) {
+            return false
+        }
+
+        if incrementCount(task) <= times {
+            block()
+            return true
+        }
+        return false
+    }
+
     private static func isDisabled(task: String) -> Bool {
         return disabledTasks().contains(defaultsKey(task))
     }

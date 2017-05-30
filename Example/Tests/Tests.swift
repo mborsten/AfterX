@@ -85,4 +85,14 @@ class Tests: XCTestCase {
 
     }
 
+    func testDoFirstTimes() {
+
+        XCTAssertTrue( AfterX.doFirst(times: 3, task: "do_first_3_times", block: {}) )
+        XCTAssertTrue( AfterX.doFirst(times: 3, task: "do_first_3_times", block: {}) )
+        XCTAssertTrue( AfterX.doFirst(times: 3, task: "do_first_3_times", block: {}) )
+        XCTAssertFalse( AfterX.doFirst(times: 3, task: "do_first_3_times", block: {}) )
+
+
+    }
+
 }

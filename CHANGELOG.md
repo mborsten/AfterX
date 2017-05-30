@@ -1,5 +1,8 @@
 # Change Log
 
+## [0.5.0](https://github.com/mborsten/AfterX/releases/tag/0.4.0)
+- Added 'do first x times'
+
 ## [0.4.0](https://github.com/mborsten/AfterX/releases/tag/0.4.0)
 - Added ephemeral tasks
 

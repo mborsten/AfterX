@@ -11,7 +11,7 @@ AfterX is ideal for keeping track of onboarding, tips, etc. Want to show a tip t
   s.author           = { 'Marcel Borsten' => 'marcel@impart.nl' }
   s.source           = { :git => 'https://github.com/mborsten/AfterX.git', :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/mborsten'
-
+  s.swift_version    = '4.0'
   s.ios.deployment_target = '8.0'
 
   s.source_files = 'AfterX/Classes/**/*'

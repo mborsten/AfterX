@@ -31,6 +31,36 @@ public struct AfterX {
         return `do`(task: task, after: 1, block: block)
     }
 
+    /// Executes the given block only once on the same day, after
+    /// that the block is ignored.
+    ///
+    /// - Parameters:
+    ///   - task: The task identifier
+    ///   - block: The block to be executed once on this day
+    /// - Returns: `true` if the task was executed, else `false`
+    @discardableResult public static func doOnceToday(task: String, block: ()->()) -> Bool {
+
+        if isDisabled(task: task) {
+            return false
+        }
+
+        let key = defaultsKey(task) + "_today"
+
+        if let lastTimeRun = UserDefaults.standard.object(forKey: key) as? Date {
+            if Calendar.current.isDateInToday(lastTimeRun) {
+                return false
+            } else {
+                UserDefaults.standard.set(Date(), forKey: key)
+                block()
+                return true
+            }
+        } else {
+            UserDefaults.standard.set(Date(), forKey: key)
+            block()
+            return true
+        }
+    }
+
     /// Executes the given block, but only after this function
     /// has been called x amount of times.
     ///

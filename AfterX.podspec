@@ -13,6 +13,6 @@ AfterX is ideal for keeping track of onboarding, tips, etc. Want to show a tip t
   s.social_media_url = 'https://twitter.com/mborsten'
   s.swift_version    = '4.0'
   s.ios.deployment_target = '8.0'
-
+  s.osx.deployment_target = '10.9'
   s.source_files = 'AfterX/Classes/**/*'
 end

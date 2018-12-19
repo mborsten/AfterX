@@ -1,5 +1,8 @@
 # Change Log
 
+## [0.6.2](https://github.com/mborsten/AfterX/releases/tag/0.6.2)
+- Supporting Swift 4.2
+
 ## [0.6.1](https://github.com/mborsten/AfterX/releases/tag/0.6.1)
 - Working on macOS support
 

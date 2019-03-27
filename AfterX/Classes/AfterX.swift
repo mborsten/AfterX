@@ -128,7 +128,7 @@ public struct AfterX {
     public static func resetCount(forTask task: String) {
         var tasks = trackedTasks()
         let key = defaultsKey(task)
-        if let index = tasks.index(of: key) {
+        if let index = tasks.firstIndex(of: key) {
             tasks.remove(at: index)
             defaults.set(tasks, forKey: trackedTasksKey)
         }
@@ -154,7 +154,7 @@ public struct AfterX {
     /// - Parameter task: The task identifier
     public static func enable(task: String) {
         var tasks = disabledTasks()
-        if let index = tasks.index(of: task) {
+        if let index = tasks.firstIndex(of: task) {
             tasks.remove(at: index)
             defaults.set(tasks, forKey: disabledTasksKey)
         }
